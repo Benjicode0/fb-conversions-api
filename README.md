@@ -1,4 +1,4 @@
-# @riculum/fb-conversions-api
+# Facebook Conversions API
 
 A TypeScript package to interact with the Facebook Conversions API, allowing you to send conversion events from your server directly to Facebook.
 
