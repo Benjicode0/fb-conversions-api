@@ -31,12 +31,14 @@ const fbEvent = async (
             body: JSON.stringify(payload),
         });
 
-        if (!response.ok) throw new Error(`Failed to send event: ${response.statusText}`);
-
-        return await response.json();
+        const contentType = response.headers.get('content-type');
+        if (contentType?.includes('application/json')) {
+            return response.json();
+        } else {
+            return false
+        }
     } catch (error) {
-        console.error('Error sending event:', error);
-        throw error;
+        return false
     }
 };
 
